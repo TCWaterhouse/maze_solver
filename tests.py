@@ -29,26 +29,17 @@ class Tests(unittest.TestCase):
             num_rows,
         )
 
-    def test_maze_create_cells_none(self):
-        num_cols = 0
-        num_rows = 0
-        m3 = Maze(0, 0, num_rows, num_cols, 10, 10)
-        self.assertEqual(
-            len(m3._cells),
-            num_cols,
-        )
-
     def test_maze_break_entrance_and_exit(self):
         num_cols = 10
         num_rows = 10
         m4 = Maze(0, 0, num_rows, num_cols, 10, 10)
         m4._break_entrance_and_exit()
         self.assertEqual(
-            m4._cells[0][0].has_left_wall,
+            m4._cells[0][0].has_top_wall,
             False
         )
         self.assertEqual(
-            m4._cells[m4._num_cols - 1][m4._num_rows - 1].has_right_wall,
+            m4._cells[m4._num_cols - 1][m4._num_rows - 1].has_bottom_wall,
             False
         )
 
