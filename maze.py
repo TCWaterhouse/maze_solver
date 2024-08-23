@@ -40,6 +40,13 @@ class Maze:
         self._cells[i][j].draw(x1, y1, x2, y2)
         self._animate()
 
+    def _break_entrance_and_exit(self):
+        self._cells[0][0].has_left_wall = False
+        self._draw_cell(0, 0)
+
+        self._cells[self._num_cols - 1][self._num_rows - 1].has_right_wall = False
+        self._draw_cell(self._num_cols - 1, self._num_rows - 1)
+
     def _animate(self):
         if self._win is None:
             return
